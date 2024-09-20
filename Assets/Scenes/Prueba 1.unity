@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 97727847}
   - component: {fileID: 97727846}
   m_Layer: 5
-  m_Name: BG2
+  m_Name: bgraund2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,14 +297,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8631455, b: 0.7688679, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b14daed29c4a524409e7949da30007ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4544eee6de2f2194581105b90da8ebd7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 665467454}
   - component: {fileID: 665467453}
   m_Layer: 5
-  m_Name: BG
+  m_Name: bgraund1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,6 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScene: {fileID: 11400000, guid: 263754244ee4b3144bbf94fc3c30ff37, type: 2}
   bottomBar: {fileID: 81025242}
+  bgController: {fileID: 1363904290}
 --- !u!1 &978550206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363904288}
   - component: {fileID: 1363904289}
+  - component: {fileID: 1363904290}
   m_Layer: 5
   m_Name: backGround
   m_TagString: Untagged
@@ -1080,6 +1082,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1363904290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363904287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b7bfacd641a2e4d9a7a534a185cda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSwitched: 0
+  bgraund1: {fileID: 665467453}
+  bgraund2: {fileID: 97727846}
+  animator: {fileID: 1363904289}
 --- !u!1 &1451920223
 GameObject:
   m_ObjectHideFlags: 0

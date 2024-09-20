@@ -17,5 +17,9 @@ MonoBehaviour:
     speaker: {fileID: 11400000, guid: 5358e3286a9ec5f49b10a64e2b7bd275, type: 2}
   - text: Hello Amador
     speaker: {fileID: 11400000, guid: 21ccc948850b83d4298b3cf766fc7535, type: 2}
+  - text: WTF
+    speaker: {fileID: 11400000, guid: 21ccc948850b83d4298b3cf766fc7535, type: 2}
+  - text: YHEA
+    speaker: {fileID: 11400000, guid: 5358e3286a9ec5f49b10a64e2b7bd275, type: 2}
   background: {fileID: 21300000, guid: b14daed29c4a524409e7949da30007ca, type: 3}
   nextScene: {fileID: 11400000, guid: 05dc0736ba63b194ebadeb634645b670, type: 2}
