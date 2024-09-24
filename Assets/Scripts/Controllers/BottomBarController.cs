@@ -10,12 +10,37 @@ public class BottomBarController : MonoBehaviour
     private int _sentenceIndex = -1;
     public StoryScene currentScene;
     private State state =State.COMPLETED;
+    public Animator animator;
+    private bool _isOff;
 
     private enum State 
     {
         PLAYING, COMPLETED
     }
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        
+    }
+    public void BarOff()
+    {
+        if (!_isOff)
+        {
+            animator.SetTrigger("BarOff");
+            _isOff = true;
+        }
+        
+    }
+    public void BarOn()
+    {
+        animator.SetTrigger("BarOn");
+        _isOff = false;
+    }
+    public void ClearText()
+    {
+        barText.text = "";
+    }
     public void PlayScene (StoryScene scene)
     {
         currentScene = scene;
