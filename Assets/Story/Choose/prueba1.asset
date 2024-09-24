@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf77fd6ab1289f14a9029d56476ab55f, type: 3}
+  m_Name: prueba1
+  m_EditorClassIdentifier: 
+  labels:
+  - text: Dar una voltereta
+    nextScene: {fileID: 11400000, guid: 8b95d18d1db177a4bbc55209911196c6, type: 2}
+  - text: Dar 3 volteretas
+    nextScene: {fileID: 11400000, guid: 0234a4b6efa5a5544a6eeba15563e410, type: 2}
+  - text: no hacer nada
+    nextScene: {fileID: 11400000, guid: 119f9c1996ad35d4393b34f3a9f391dc, type: 2}

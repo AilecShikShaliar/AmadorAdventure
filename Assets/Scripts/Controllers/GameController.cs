@@ -8,18 +8,19 @@ public class GameController : MonoBehaviour
     public BottomBarController bottomBar;
     public BackgroundController bgController;
     public ChooseController chooseController;
+    
 
     private State state = State.IDLE;
 
     
     private enum State
     {
-        IDLE, ANIMATE, CHOOSE
+        IDLE, ANIMATE, CHOOSE 
     }
     void Start()
     {
-        if (currentScene is StoryScene)
-        {
+         if(currentScene is StoryScene) 
+        { 
             StoryScene storyScene = currentScene as StoryScene;
             bottomBar.PlayScene(storyScene);
             bgController.SetImage(storyScene.background);
@@ -36,9 +37,7 @@ public class GameController : MonoBehaviour
             {
                 if (bottomBar.IsLastSentence())
                 {
-                    //currentScene = currentScene.nextScene;
-                    //bottomBar.PlayScene(currentScene);
-                    //bgController.SwitchImage(currentScene.background);
+                    
                     PlayScene((currentScene as StoryScene).nextScene);
                 }
                 else
@@ -60,22 +59,26 @@ public class GameController : MonoBehaviour
         currentScene = scene;
         bottomBar.BarOff();
         yield return new WaitForSeconds(1f);
-        if(scene is StoryScene)
-        {
+        if(scene is StoryScene) 
+        { 
             StoryScene storyScene = scene as StoryScene;
-            bgController.SwitchImage(storyScene.background);
-            yield return new WaitForSeconds(1f);
-            bottomBar.ClearText();
-            bottomBar.BarOn();
-            yield return new WaitForSeconds(1f);
-            bottomBar.PlayScene(storyScene);
-            state = State.IDLE;
+             bgController.SwitchImage(storyScene.background);
+             yield return new WaitForSeconds(1f);
+              bottomBar.ClearText();
+             bottomBar.BarOn();
+             yield return new WaitForSeconds(1f);
+             bottomBar.PlayScene(storyScene);
+             state = State.IDLE;
+
         }
-        else if (scene is ChoseScene)
+        else if (scene is ChooseScene)
         {
             state = State.CHOOSE;
-            chooseController.SetupChoose(scene as ChoseScene);
+            chooseController.SetupChoose(scene as ChooseScene);
+
         }
+        
+        
        
 
     }

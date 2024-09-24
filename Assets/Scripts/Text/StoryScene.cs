@@ -18,5 +18,4 @@ public class StoryScene : GameScene
 
 }
 
-public class GameScene : ScriptableObject 
-{ }
+public class GameScene: ScriptableObject {}

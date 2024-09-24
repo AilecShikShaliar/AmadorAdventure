@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChooseController : MonoBehaviour
 {
@@ -9,72 +10,82 @@ public class ChooseController : MonoBehaviour
     private RectTransform rectTransform;
     private Animator animator;
     private float labelHeight = -1;
-    // Start is called before the first frame update
+    private ChooseController controller;
     void Start()
     {
-        animator = GetComponent<rectTransform>();
+        animator = GetComponent<Animator>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
-   public void SetupChoose(ChoseScene scene)
+
+    public void SetupChoose(ChooseScene scene)
     {
         DestroyLabels();
-        animator.SetTrigger("BarOn");
-        float labelHeight = -1;
-        for(int index = 0; index < scene.labels.Count; index++)
+        animator.SetTrigger("Show");
+        
+        for (int index = 0; index < scene.labels.Count; index++)
         {
             ChooseLabelController newLabel = Instantiate(label.gameObject, transform).GetComponent<ChooseLabelController>();
-            newLabel.scene = scene.labels[index].nextScene;
+            
 
-            if (labelHeight == -1)
+            if(labelHeight == -1)
             {
                 labelHeight = newLabel.GetHeight();
             }
-
-            newLabel.Setup(scene.labels[index], this, CalculateLabelPosition(index, scene.labels.Count));
+            
+            newLabel.Setup(scene.labels[index], this, CalculateLabelPosittion(index, scene.labels.Count));
         }
-        
+
+        Vector2 size = rectTransform.sizeDelta;
+        size.y = (scene.labels.Count + 2) * labelHeight;
+        rectTransform.sizeDelta = size;
     }
+
     public void PerformChoose(StoryScene scene)
     {
         gameController.PlayScene(scene);
-        animator.SetTrigger("BarOff");
+        animator.SetTrigger("Hide");
+
     }
 
-    private float CalculateLabelPosition( int labelIndex, int labelCount)
+    private float CalculateLabelPosittion ( int labelIndex, int labelCount)
     {
         if(labelCount %2 == 0)
         {
             if(labelIndex < labelCount / 2)
             {
                 return labelHeight * (labelCount / 2 - labelIndex - 1) + labelHeight / 2;
+
             }
             else
             {
-                return -1 * (labelHeight * (labelIndex  - labelCount / 2) + labelHeight / 2);
+                return -1 * (labelHeight * (labelIndex -  labelCount / 2) + labelHeight / 2);
             }
         }
-       
         else
         {
-            if (labelIndex > labelCount / 2)
+             if(labelIndex < labelCount / 2)
             {
-                return labelHeight * (labelCount / 2 - labelIndex);
+                return labelHeight * (labelCount / 2 - labelIndex - 1) + labelHeight / 2;
+
             }
-            else if (labelIndex < labelCount / 2)
+            else if (labelIndex > labelCount / 2)
             {
-                return -1 * (labelHeight * (labelIndex - labelCount / 2));
+                return -1 * (labelHeight * (labelIndex -  labelCount / 2));
             }
             else
             {
-                return 0;
+                return  0;
+
             }
         }
     }
-   private void DestroyLabels()
-    {
-        foreach (Transform childTransform in transform)
-        {
-            DestroyLabels(childTransform.gameObject);
-        }
-    }
+
+   private  void DestroyLabels()
+   {
+     foreach(Transform childTransform in transform)
+     {
+        Destroy(childTransform.gameObject);
+     }
+   }
 }

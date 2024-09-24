@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05389783e53ce7d42b2a537e9e4a0228, type: 3}
-  m_Name: 2
+  m_Name: 3
   m_EditorClassIdentifier: 
   sentences:
-  - text: No te entiendo
+  - text: AMADOR QUE PUTO AMO
     speaker: {fileID: 11400000, guid: 21ccc948850b83d4298b3cf766fc7535, type: 2}
-  - text: yo menos
+  - text: Lo se, es que soy el mejor
     speaker: {fileID: 11400000, guid: 5358e3286a9ec5f49b10a64e2b7bd275, type: 2}
-  background: {fileID: 21300000, guid: 4544eee6de2f2194581105b90da8ebd7, type: 3}
-  nextScene: {fileID: 11400000, guid: f60eb0b47cdc93b4f8aed0220ce07dbb, type: 2}
+  background: {fileID: 21300000, guid: b14daed29c4a524409e7949da30007ca, type: 3}
+  nextScene: {fileID: 0}
